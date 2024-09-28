@@ -1,0 +1,347 @@
+@font-face {
+    font-family: Ethnocentric;
+    src: url(Fonts/ethnocentric\ rg.otf);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #131212;
+    color: #ffffff;
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+canvas#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 130%;
+    height: 130%;
+    z-index: -1;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 1000; /* Certifique-se de que o z-index seja alto */
+}
+
+nav {
+    background: linear-gradient(135deg, #1f1f1f, #333);
+    border-radius: 25px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+.loading-bar-container {
+    width: 100%;
+    height: 5px;
+    background-color: #333;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+.loading-bar {
+    width: 0;
+    height: 100%;
+    background-color: #00ff37;
+    transition: width 1s linear;
+}
+
+.logo span {
+    font-family: 'Ethnocentric', 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+
+.neon {
+    color: #ffffff;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.menu-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Ethnocentric', 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover {
+    color: #00ffcc;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    display: block;
+}
+
+.menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section {
+    padding: 5rem 1rem;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: #2bff00;
+    text-shadow: 0 0 5px #2bff00, 0 0 10px #2bff00, 0 0 20px #2bff00;
+}
+
+.menu li {
+    margin: 0 1rem;
+}
+
+.menu li a {
+    text-decoration: none;
+    font-family: 'Ethnocentric', 'Arial', sans-serif;
+    color: #ffffff;
+    font-size: 1.2rem;
+    position: relative;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00ffcc;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
+.menu li a:hover {
+    color: #00ffcc;
+}
+
+.menu-item:active {
+    animation: bounce 0.5s;
+}
+
+.titulos {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+.section.active {
+    display: block;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.gallery img {
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+.typing, .titulos {
+    font-size: 1rem;
+    text-align: left;
+    white-space: pre-wrap;
+    margin: 2rem auto;
+    max-width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    font-family: 'Ethnocentric';
+    border: 1px #00ffcc;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    height: 100vh;
+    flex-wrap: wrap; /* Adicionado para permitir quebra de linha */
+}
+
+.text {
+    flex: 1;
+    padding-right: 2rem;
+    min-width: 300px; /* Adicionado para garantir largura mínima */
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    right: 18%;
+    transform: translateY(-50%);
+}
+
+.image-container img {
+    border-radius: 100%;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 0 0 5px #00ff22, 0 0 10px #3cff00, 0 0 20px #09ff00;
+}
+
+/* Animação de transição para as seções */
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.section.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Container da grade */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    justify-content: center; /* Centraliza o conteúdo */
+}
+
+/* Estilo das imagens */
+.gallery img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Animação ao passar o mouse */
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    padding: 30px;
+    background-color: #1f1f1f;
+    box-shadow: 0 0 5px #00ff40, 0 0 10px #00ff37, 0 0 20px #15ff00;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 500px;
+    }
+
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 1rem 0;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center; /* Centraliza o conteúdo */
+    }
+
+    .text {
+        padding-right: 0;
+        margin-bottom: 2rem;
+        min-width: auto; /* Remove a largura mínima */
+    }
+
+    .typing {
+        max-height: 200px;
+        top: 680px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: auto; /* Remove a largura mínima */
+        text-align: center;
+    }
+
+    .image-container {
+        position: relative;
+        top: -10%;
+        right: auto;
+        transform: none;
+        margin-bottom: 2rem;
+    }
+
+    .image-container img {
+        width: 50%;
+        height: auto;
+    }
+}
+

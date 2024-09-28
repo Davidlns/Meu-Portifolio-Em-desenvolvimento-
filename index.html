@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;D.lins/Dev></title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ethnocentric&display=swap">
+</head>
+<body>
+    <canvas id="background"></canvas>
+    <header>
+        <nav>
+            <div class="logo"><span class="highlight"><</span><span class="neon">D.LINS/DEV</span><span class="highlight">></span></div>
+            <ul class="menu">
+                <li><a href="#home" class="menu-item"><span class="highlight"><</span>Home<span class="highlight">></span></a></li>
+                <li><a href="#skills" class="menu-item"><span class="highlight"><</span>Skills<span class="highlight">></span></a></li>
+                <li><a href="#trabalhos" class="menu-item"><span class="highlight"><</span>Trabalhos<span class="highlight">></span></a></li>
+                <li><a href="#contato" class="menu-item"><span class="highlight"><</span>Contato<span class="highlight">></span></a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="loading-bar-container" id="loading-bar-container">
+            <div class="loading-bar" id="loading-bar"></div>
+        </div>
+    </header>
+
+    <div id="home" class="section active">
+
+        <div class="titulos" style="top: 25%;">
+            <h1 id="meuport" style="font-size: 50px; text-shadow: 0 0 5px #15ff00, 0 0 10px #09ff00, 0 0 20px #00ff15;">&lt;Meu portifólio></h1>
+        </div>
+
+        <div class="content">
+            <div class="image-container">
+                <img src="Imagens/eu.jpeg" alt="Minha Imagem" class="animate__animated animate__fadeInRight">
+            </div>
+        </div>
+        <div class="typing" id="typing"></div>
+    </div>
+
+    <div id="skills" class="section">
+        <h2 style="font-family:Ethnocentric; font-size: 100px; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;">Skills</h2>
+        <div class="gallery">
+            <img src="Imagens/html.png" alt="Imagem 1">
+            <img src="Imagens/css.png" alt="Imagem 2">
+            <img src="Imagens/js.png" alt="Imagem 3">
+            <img src="Imagens/Python.png" alt="Imagem 4">
+            <img src="Imagens/TS.png" alt="Imagem 5">
+        </div>
+    </div>
+
+    <div id="trabalhos" class="section">
+        <h2>Trabalhos</h2>
+        <p>Conteúdo sobre trabalhos.</p>
+    </div>
+
+    <div id="contato" class="section">
+        <h2>Contato</h2>
+        <p>Conteúdo sobre contato.</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                item.classList.add('animate__animated', 'animate__bounce');
+                const loadingBar = document.getElementById('loading-bar');
+                const loadingBarContainer = document.getElementById('loading-bar-container');
+                loadingBar.style.width = '0%';
+                loadingBarContainer.style.display = 'block';
+                setTimeout(() => {
+                    item.classList.remove('animate__animated', 'animate__bounce');
+                    const currentSection = document.querySelector('.section.active');
+                    currentSection.classList.add('animate__animated', 'animate__fadeOut');
+                    setTimeout(() => {
+                        currentSection.classList.remove('active', 'animate__fadeIn', 'animate__fadeOut');
+                        const target = document.querySelector(item.getAttribute('href'));
+                        target.classList.add('active', 'animate__animated', 'animate__fadeIn');
+                        loadingBarContainer.style.display = 'none';
+                    }, 500); // Tempo para a animação de saída
+                }, 1000); // Atraso de 1 segundo para permitir a animação de clique
+                setTimeout(() => {
+                    loadingBar.style.width = '100%';
+                }, 10); // Inicia a animação da barra de carregamento
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const text = `Olá, me chamo David, sou aluno de programação, e atualmente estou estudando pela Universidade Estácio em Desenvolvimento Full-Stack, e estou no meu segundo ano de Faculdade. Também iniciei um bacharelado em ciência da computação pela Universidade FAM em 2020, porém não concluí o curso e parei no segundo ano.
+
+Eu tenho contato com a programação desde 2017 quando iniciei meu ensino médio técnico em informática, foi um curso mais voltado para a parte de desenvolvimento web, e desde então venho estudando bastante sobre a área e já finalizei o curso técnico.
+
+Eu busco uma oportunidade para entrar no mercado e aceito qualquer vaga que possa agregar conhecimento e experiência profissional. Hoje eu tenho mais afinidade e conhecimento com a linguagem Python, porém também já programei bastante em JavaScript e usei bastante tecnologias como HTML e CSS.`;
+
+            let index = 0;
+            const typingElement = document.getElementById('typing');
+
+            function type() {
+                if (index < text.length) {
+                    typingElement.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, 25);
+                }
+            }
+
+            type();
+
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.querySelector('.menu');
+
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('active');
+            });
+        });
+
+        // Background animation
+        const canvas = document.getElementById('background');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const colors = ['#00ffcc', '#2bff00'];
+        const lines = [];
+
+        function Line(x, y, dx, dy, color) {
+            this.x = x;
+            this.y = y;
+            this.dx = dx;
+            this.dy = dy;
+            this.color = color;
+
+            this.draw = function() {
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x + this.dx, this.y + this.dy);
+                ctx.strokeStyle = this.color;
+                ctx.stroke();
+            };
+
+            this.update = function() {
+                this.x += this.dx;
+                this.y += this.dy;
+
+                if (this.x > canvas.width || this.x < 0) {
+                    this.dx = -this.dx;
+                }
+
+                if (this.y > canvas.height || this.y < 0) {
+                    this.dy = -this.dy;
+                }
+
+                this.draw();
+            };
+        }
+
+        for (let i = 0; i < 100; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            const dx = (Math.random() - 0.5) * 2;
+            const dy = (Math.random() - 0.5) * 2;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            lines.push(new Line(x, y, dx, dy, color));
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            lines.forEach(line => {
+                line.update();
+            });
+        }
+
+        animate();
+
+        // Mouse interaction
+        canvas.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            lines.forEach(line => {
+                const dx = mouseX - line.x;
+                const dy = mouseY - line.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 100) {
+                    line.dx += dx * 0.01;
+                    line.dy += dy * 0.01;
+                }
+            });
+        });
+
+    </script>
+
+    <footer>
+        @COPYRIGHT
+        David Lins DEV
+        Meu portifólio
+    </footer>
+</body>
+</html>
