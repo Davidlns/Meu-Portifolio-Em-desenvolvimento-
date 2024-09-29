@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>&lt;D.lins/Dev></title>
+    <title><D.lins/Dev></title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ethnocentric&display=swap">
@@ -31,40 +31,131 @@
     </header>
 
     <div id="home" class="section active">
-
         <div class="titulos" style="top: 25%;">
-            <h1 id="meuport" style="font-size: 50px; text-shadow: 0 0 5px #15ff00, 0 0 10px #09ff00, 0 0 20px #00ff15;">&lt;Meu portifólio></h1>
+            <h2>< Meu portifólio ></h2>
         </div>
-
         <div class="content">
             <div class="image-container">
                 <img src="Imagens/eu.jpeg" alt="Minha Imagem" class="animate__animated animate__fadeInRight">
             </div>
         </div>
-        <div class="typing" id="typing"></div>
+        <div class="typing" id="typing">
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {const text =`Olá, me chamo David, sou programador, e atualmente estou estudando pela Universidade Estácio graduação em Desenvolvimento Full-Stack, estou no meu segundo ano de Faculdade, com formação prevista para 2026. Também iniciei um bacharelado em ciência da computação pela Universidade FAM em 2020, porém não concluí o curso e parei no segundo ano.
+    
+Tenho contato com a programação desde 2017 quando iniciei meu ensino médio técnico em informática, foi um curso mais voltado para a parte de desenvolvimento web, e desde então venho estudando bastante sobre a área e já finalizei o curso a alguns anos.
+    
+Eu busco uma oportunidade para entrar no mercado, e obter mais experiência profissional pra me tornar cada vez melhor no meu trabalho.`;
+    
+                let index = 0;
+                const typingElement = document.getElementById('typing');
+    
+                function type() {
+                    if (index < text.length) {
+                        typingElement.innerHTML += text.charAt(index);
+                        index++;
+                        setTimeout(type, 25);
+                    }
+                }
+                type();
+            });
+        </script>
+        </div>
     </div>
 
     <div id="skills" class="section">
-        <h2 style="font-family:Ethnocentric; font-size: 100px; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;">Skills</h2>
-        <div class="gallery">
-            <img src="Imagens/html.png" alt="Imagem 1">
-            <img src="Imagens/css.png" alt="Imagem 2">
-            <img src="Imagens/js.png" alt="Imagem 3">
-            <img src="Imagens/Python.png" alt="Imagem 4">
-            <img src="Imagens/TS.png" alt="Imagem 5">
-        </div>
+        <h2 style="font-family:Ethnocentric; font-size: 50px; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc; margin-top: 60px;">Skills</h2>
+
+        <div class="chart-container" style="margin-top: 20px;"></div>
+            <div class="chart">
+                <div class="bar" style="height: 90%;" data-skill="Pyt"></div>
+                <div class="bar" style="height: 70%;" data-skill="JS"></div>
+                <div class="bar" style="height: 80%;" data-skill="HTML"></div>
+                <div class="bar" style="height: 80%;" data-skill="CSS"></div>
+                <div class="bar" style="height: 40%;" data-skill="PHP"></div>
+                <div class="bar" style="height: 40%;" data-skill="Vue"></div>
+                <div class="bar" style="height: 30%;" data-skill="SQL"></div>
+            </div>
+
+            <div class="gallery" style="display: flex; flex-direction: row;">
+                <img src="Imagens/Python.png" alt="Imagem 1">
+                <img src="Imagens/js.png" alt="Imagem 2">
+                <img src="Imagens/html.png" alt="Imagem 3">
+                <img src="Imagens/css.png" alt="Imagem 4">
+                <img src="Imagens/php.png" alt="Imagem 5">
+                <img src="Imagens/vuejs.png" alt="Imagem 6">
+                <img src="Imagens/mysql.png" alt="Imagem 6">
+            </div>
+
+            <div class="skills-text" style="margin-top: 30px; margin-bottom: 30px; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc; color: aliceblue;">
+                "Você é do tamanho dos seus sonhos! Lute, persista, insista, corra atrás, passe algumas noites sem dormir direito, mas nunca desista de seus sonhos, acredite que é capaz, se olhe no espelho e diga pra você: você tem potencial! Ninguém além de você mesmo pode torná-lo real."
+            </div>
     </div>
 
     <div id="trabalhos" class="section">
         <h2>Trabalhos</h2>
-        <p>Conteúdo sobre trabalhos.</p>
+
+        <div class="gallery2">
+
+            <div class="gallery2-item">
+                <a href="https://davidlns.github.io/MEU-SITE-CRINGE---HTML-CSS-BOOTSTRAP/home.html" target="_blank">
+                    <img src="Imagens/TRABALHO1.png" alt="Imagem 1">
+                    <div class="overlay">Site Culinária(HTML/CSS)</div>
+                </a>
+            </div>
+
+            <div class="gallery2-item">
+                <a href="https://github.com/Davidlns/Python-Estruturado" target="_blank">
+                    <img src="Imagens/Trabalho2.png" alt="Imagem 2">
+                    <div class="overlay">Códigos Python</div>
+                </a>
+            </div>
+
+            <div class="gallery2-item">
+                <a href="https://github.com/Davidlns?tab=repositories" target="_blank">
+                    <img src="Imagens/github.jpeg" alt="Imagem 5">
+                    <div class="overlay">Meus Repositórios</div>
+                </a>
+            </div>
+
+            <div class="gallery2-item">
+                <a href="https://github.com/Davidlns/HTML5-CODES" target="_blank">
+                    <img src="Imagens/Trabalho3.jpg" alt="Imagem 3">
+                    <div class="overlay">Códigos Html</div>
+                </a>
+            </div>
+
+            <div class="gallery2-item">
+                <a href="https://github.com/Davidlns/CSS---Estilizando-paginas" target="_blank">
+                    <img src="Imagens/Trabalho4.png" alt="Imagem 4">
+                    <div class="overlay">Códigos CSS</div>
+                </a>
+            </div>
+
+        </div>
+
+        </div>
+
     </div>
 
     <div id="contato" class="section">
-        <h2>Contato</h2>
-        <p>Conteúdo sobre contato.</p>
+        <h2 style="font-family:Ethnocentric; font-size: 50px; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc; margin-top: 120px;">Fale Comigo</h2>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/david-lins-amaral-1059b0211/" target="_blank">
+                <img src="Imagens/Linkedin.jpg" alt="linkedin">
+            </a>
+            <a href="https://github.com/Davidlns" target="_blank">
+                <img src="Imagens/github.jpeg" alt="github">
+            </a>
+            <a href="mailto:linsdavid476@gmail.com" target="_blank">
+                <img src="Imagens/gmail.jpg" alt="gmail">
+            </a>
+            <a href="https://w.app/VYheIs" target="_blank">
+                <img src="Imagens/whats.jpeg" alt="whatsapp">
+            </a>
+        </div>
     </div>
-
+    
     <script>
         document.querySelectorAll('.menu-item').forEach(item => {
             item.addEventListener('click', event => {
@@ -91,117 +182,111 @@
             });
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const text = `Olá, me chamo David, sou aluno de programação, e atualmente estou estudando pela Universidade Estácio em Desenvolvimento Full-Stack, e estou no meu segundo ano de Faculdade. Também iniciei um bacharelado em ciência da computação pela Universidade FAM em 2020, porém não concluí o curso e parei no segundo ano.
-
-Eu tenho contato com a programação desde 2017 quando iniciei meu ensino médio técnico em informática, foi um curso mais voltado para a parte de desenvolvimento web, e desde então venho estudando bastante sobre a área e já finalizei o curso técnico.
-
-Eu busco uma oportunidade para entrar no mercado e aceito qualquer vaga que possa agregar conhecimento e experiência profissional. Hoje eu tenho mais afinidade e conhecimento com a linguagem Python, porém também já programei bastante em JavaScript e usei bastante tecnologias como HTML e CSS.`;
-
-            let index = 0;
-            const typingElement = document.getElementById('typing');
-
-            function type() {
-                if (index < text.length) {
-                    typingElement.innerHTML += text.charAt(index);
-                    index++;
-                    setTimeout(type, 25);
-                }
-            }
-
-            type();
-
-            const menuToggle = document.getElementById('menu-toggle');
-            const menu = document.querySelector('.menu');
-
-            menuToggle.addEventListener('click', () => {
-                menu.classList.toggle('active');
-            });
-        });
-
-        // Background animation
         const canvas = document.getElementById('background');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-        const colors = ['#00ffcc', '#2bff00'];
-        const lines = [];
+function drawBackground() {
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#0f0';
+    ctx.font = '20px Arial';
+    ctx.fillText('<D.LINS/DEV>', canvas.width / 2 - 50, canvas.height / 2);
+}
 
-        function Line(x, y, dx, dy, color) {
-            this.x = x;
-            this.y = y;
-            this.dx = dx;
-            this.dy = dy;
-            this.color = color;
+drawBackground();
 
-            this.draw = function() {
-                ctx.beginPath();
-                ctx.moveTo(this.x, this.y);
-                ctx.lineTo(this.x + this.dx, this.y + this.dy);
-                ctx.strokeStyle = this.color;
-                ctx.stroke();
-            };
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    drawBackground();
+});
 
-            this.update = function() {
-                this.x += this.dx;
-                this.y += this.dy;
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.querySelector('.menu');
 
-                if (this.x > canvas.width || this.x < 0) {
-                    this.dx = -this.dx;
-                }
+menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+});
 
-                if (this.y > canvas.height || this.y < 0) {
-                    this.dy = -this.dy;
-                }
+// Background animation
+const colors = ['#00ffcc', '#2bff00'];
+const lines = [];
 
-                this.draw();
-            };
+function Line(x, y, dx, dy, color) {
+    this.x = x;
+    this.y = y;
+    this.dx = dx;
+    this.dy = dy;
+    this.color = color;
+
+    this.draw = function() {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + this.dx, this.y + this.dy);
+        ctx.strokeStyle = this.color;
+        ctx.stroke();
+    };
+
+    this.update = function() {
+        this.x += this.dx;
+        this.y += this.dy;
+
+        if (this.x > canvas.width || this.x < 0) {
+            this.dx = -this.dx;
         }
 
-        for (let i = 0; i < 100; i++) {
-            const x = Math.random() * canvas.width;
-            const y = Math.random() * canvas.height;
-            const dx = (Math.random() - 0.5) * 2;
-            const dy = (Math.random() - 0.5) * 2;
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            lines.push(new Line(x, y, dx, dy, color));
+        if (this.y > canvas.height || this.y < 0) {
+            this.dy = -this.dy;
         }
 
-        function animate() {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        this.draw();
+    };
+}
 
-            lines.forEach(line => {
-                line.update();
-            });
+for (let i = 0; i < 100; i++) {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
+    const dx = (Math.random() - 0.5) * 2;
+    const dy = (Math.random() - 0.5) * 2;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    lines.push(new Line(x, y, dx, dy, color));
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    lines.forEach(line => {
+        line.update();
+    });
+}
+
+animate();
+
+// Mouse interaction
+canvas.addEventListener('mousemove', (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    lines.forEach(line => {
+        const dx = mouseX - line.x;
+        const dy = mouseY - line.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 100) {
+            line.dx += dx * 0.01;
+            line.dy += dy * 0.01;
         }
+    });
+});
+</script>
 
-        animate();
-
-        // Mouse interaction
-        canvas.addEventListener('mousemove', (event) => {
-            const mouseX = event.clientX;
-            const mouseY = event.clientY;
-
-            lines.forEach(line => {
-                const dx = mouseX - line.x;
-                const dy = mouseY - line.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 100) {
-                    line.dx += dx * 0.01;
-                    line.dy += dy * 0.01;
-                }
-            });
-        });
-
-    </script>
-
-    <footer>
-        @COPYRIGHT
-        David Lins DEV
-        Meu portifólio
-    </footer>
+<footer>
+    @COPYRIGHT
+    David Lins DEV
+    Meu portifólio
+</footer>
 </body>
 </html>
