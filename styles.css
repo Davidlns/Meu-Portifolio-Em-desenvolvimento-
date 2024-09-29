@@ -173,13 +173,6 @@ nav {
     }
 }
 
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-}
-
 .section.active {
     display: block;
 }
@@ -238,8 +231,8 @@ nav {
     display: flex;
     transform: translateY(-50%);
     position: absolute;
-    top: 13%;
-    right: -500px;
+    top: 14%;
+    right: -550px;
 }
 
 .image-container img {
@@ -255,9 +248,9 @@ nav {
     text-shadow: 0 0 5px #00ff95, 0 0 10px #00ffa6, 0 0 20px #00ffb7;
     color: white;
     font-size: 40px;
-    margin-top: 130px;
+    margin-top: 180px;
     position: relative;
-    left: -50%;
+    left: -70%;
 }
 
 /* Animação de transição para as seções */
@@ -502,7 +495,7 @@ footer {
 
     .image-container {
         position: relative;
-        top: -40%;
+        top: -3%;
         right: auto;
         transform: none;
     }
