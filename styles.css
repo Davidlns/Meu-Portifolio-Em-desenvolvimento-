@@ -789,7 +789,7 @@ nav {
     display: flex;
     transform: translateY(-50%);
     position: absolute;
-    top: 14%;
+    top: 20%;
     right: -550px;
 }
 
@@ -806,7 +806,7 @@ nav {
     text-shadow: 0 0 5px #00ff95, 0 0 10px #00ffa6, 0 0 20px #00ffb7;
     color: white;
     font-size: 40px;
-    margin-top: 180px;
+    margin-top: 100px;
     position: relative;
     left: -70%;
 }
